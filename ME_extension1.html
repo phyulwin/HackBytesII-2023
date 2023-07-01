@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.container {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-gap: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>Kinematics: Equations of Motion</h1>
+		<div class="container">
+			<div>
+				<h3>
+					1. v = v0 + at
+					<br>2. x = x0 + v0t + 1/2at^2
+					<br>3. v^2 = v0^2 + 2a(x - x0)
+					<br>4. x = 1/2(v0 + v)t
+				</h3>
+			</div>
+			<div>
+				<h3>
+					v = final velocity <br>
+					v0 = initial velocity <br>
+					a = acceleration <br>
+					t = time <br>
+					x = initial position <br>
+					x0 = final position
+				</h3>
+			</div>
+			<div>
+				<!--GET INPUT FROM USER-->
+				<h3>
+					<form id="kineticEquations">
+						<input type="number" step="any" id="finalvelocity" name="finalvelocity" placeholder="m/s"> <br>
+						<input type="number" step="any" id="initialvelocity" name="initialvelocity" placeholder="m/s"> <br>
+						<input type="number" step="any" id="acceleration" name="acceleration" placeholder="m/s^2"> <br>
+						<input type="number" step="any" id="time" name="time" placeholder="s"> <br>
+						<input type="number" step="any" id="initialposition" name="initialposition" placeholder="m"> <br>
+						<input type="number" step="any" id="finalposition" name="finalposition" placeholder="m"> <br>
+
+
+						<button type="button" onclick="calcKinematicsEq()">Solve</button>
+					</form>
+
+					<script>
+						function roundTo4Deci(number) {
+							return Number.prototype.toFixed.call(number, 4);
+						}
+
+						function equation1(v0, a, t) {
+							return v0 + (a * t);
+						}
+
+						function equation2(x0, v0, t, a) {
+							return x0 + (v0 * t) + (0.5 * a * Math.pow(t, 2));
+						}
+
+						function equation3(v0, a, x, x0) {
+							return Math.pow(v0, 2) + (2 * a * (x - x0));
+						}
+
+						function equation4(v0, v, t) {
+							return (1 / 2) * (v0 + v) * t;
+						}
+
+						function calcKinematicsEq() {
+							var form = document.getElementById("kineticEquations");
+
+							//get variable values from form
+							var v = parseFloat(form.elements["finalvelocity"].value);
+							var v0 = parseFloat(form.elements["initialvelocity"].value);
+							var a = parseFloat(form.elements["acceleration"].value);
+							var t = parseFloat(form.elements["time"].value);
+							var x = parseFloat(form.elements["finalposition"].value);
+							var x0 = parseFloat(form.elements["initialposition"].value);
+
+							//calculate and display answer
+							form.elements["finalvelocity"].value = roundTo4Deci(equation1(v0, a, t));
+							form.elements["finalposition"].value = roundTo4Deci(equation2(x0, v0, t, a));
+							form.elments["finalvelocity"].value = roundTo4Deci(equation3(v0, a, x, x0));
+							form.elements["finalposition"].value = roundTo4Deci(equation4(v0, v, t));
+						}
+					</script>
+				</h3>
+
+			</div>
+		</div>
+		<!--END OF KE MOTION EQ-->
+	</body>
+
+</html>

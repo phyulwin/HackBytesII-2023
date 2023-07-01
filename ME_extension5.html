@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+
+		<style>
+			.container {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-gap: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--CHANGE THE TOPIC-->
+		<h1>Linear Momentum and Collision</h1>
+		<div class="container">
+			<div>
+				<h3>
+					<!--CHANGE THE EQUATIONS-->
+					p = mv <br>
+					&#916;p = F<sub>net</sub>&#916;t <br>
+				</h3>
+			</div>
+			<div>
+				<h3>
+					p = momentum <br>
+					m = mass <br>
+					v = velocity <br>
+					F<sub>net</sub> = net force <br>
+					&#916;t = change in time
+				</h3>
+			</div>
+
+			<div>
+				<!--GET INPUT FROM USER-->
+				<h3>
+					<!--CHANGE FORM NAME-->
+					<form id="momentum">
+						<!--CHANGE FORMULA-->
+						<input type="number" step="any" id="momentum" name="momentum" placeholder="kg m/s"> <br>
+						<input type="number" step="any" id="mass" name="mass" placeholder="kg"> <br>
+						<input type="number" step="any" id="velocity" name="velocity" placeholder="m/s"> <br>
+						<input type="number" step="any" id="force" name="force" placeholder="N"> <br>
+						<input type="number" step="any" id="time" name="time" placeholder="s"> <br>
+
+						<button type="button" onclick="momentumSolver()">Solve</button>
+					</form>
+
+					<script>
+						//function to round a value to four decimal numbers
+						function roundTo4Deci(number) {
+							return Number.prototype.toFixed.call(number, 4);
+						}
+
+						function momentumSolver() {
+							//get values from the form
+							var form = document.getElementById("momentum");
+
+							//get value from document
+							var p = parseFloat(form.elements["momentum"].value);
+							var m = parseFloat(form.elements["mass"].value);
+							var v = parseFloat(form.elements["velocity"].value);
+							var F = parseFloat(form.elements["force"].value);
+							var t = parseFloat(form.elements["time"].value);
+
+							//calculate and return value
+							form.elements["momentum"].value = roundTo4Deci(m*v);
+							form.elements["force"].value = roundTo4Deci(p/t);
+						}
+					</script>
+				</h3>
+
+			</div>
+		</div>
+
+	</body>
+
+</html>

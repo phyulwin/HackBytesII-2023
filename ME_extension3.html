@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+
+		<style>
+			.container {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-gap: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>Friction and Elasticity (Hooke's Law)</h1>
+		<div class="container">
+			<div>
+				<h3>
+					F<sub>s</sub> &#8804; &#956;<sub>s</sub>N <br>
+					F<sub>k</sub> = &#956;<sub>k</sub>N <br>
+					F = -k&#916;x <br>
+					stress = F/A <br>
+					strain = &#916;L/L<sub>0</sub>
+
+				</h3>
+			</div>
+			<div>
+				<h3>
+					F<sub>s</sub> = static friction <br>
+					&#956;<sub>s</sub> = static coefficient of friction <br>
+					F<sub>k</sub> = kinetic frction <br>
+					&#956;<sub>k</sub> = kinetic coefficient of friction <br>
+					F = spring force <br>
+					k = spring constant <br>
+					&#916;x = amount of extension
+				</h3>
+			</div>
+			<div>
+				<!--GET INPUT FROM USER-->
+				<h3>
+					<form id="dynamicsFriction">
+						<input type="number" step="any" id="staticF" name="staticF" placeholder="N"> <br>
+						<input type="number" step="any" id="staticCEF" name="staticCEF" placeholder=""> <br>
+						<input type="number" step="any" id="kineticF" name="kineticF" placeholder="N"> <br>
+						<input type="number" step="any" id="kineticCEF" name="kineticCEF" placeholder=""> <br>
+						<input type="number" step="any" id="normalforce" name="normalforce" placeholder="N"><br>
+						<input type="number" step="any" id="springforce" name="springforce" placeholder="N"> <br>
+						<input type="number" step="any" id="springconst" name="springconst" placeholder="N/m"> <br>
+						<input type="number" step="any" id="distance" name="distance" placeholder="m"> <br>
+
+						<button type="button" onclick="dynamicsFricSolver()">Solve</button>
+					</form>
+
+					<script>
+						function roundTo4Deci(number) {
+							return Number.prototype.toFixed.call(number, 4);
+						}
+
+						function dynamicsFricSolver() {
+							//get values from the form
+							var form = document.getElementById("dynamicsFriction");
+
+							//get value from document
+							var Fs = parseFloat(form.elements["staticF"].value);
+							var CEFs = parseFloat(form.elements["staticCEF"].value);
+							var Fk = parseFloat(form.elements["kineticF"].value);
+							var CEFk = parseFloat(form.elements["kineticCEF"].value);
+							var N = parseFloat(form.elements["normalforce"].value);
+							var F = parseFloat(form.elements["springforce"].value);
+							var k = parseFloat(form.elements["springconst"].value);
+							var x = parseFloat(form.elements["distance"].value);
+
+							//calculate and return value
+							form.elements["staticF"].value = roundTo4Deci(CEFs*N);
+							form.elements["kineticF"].value = roundTo4Deci(CEFk*N);
+							form.elements["springforce"].value = roundTo4Deci(k*x)*-1;
+						}
+					</script>
+				</h3>
+
+			</div>
+		</div>
+		<!--END OF KE MOTION EQ-->
+	</body>
+
+</html>

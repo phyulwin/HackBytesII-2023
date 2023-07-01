@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+
+		<style>
+			.container {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-gap: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--CHANGE THE TOPIC-->
+		<h1>Electric Charge and Electric Field (Coulomb's Law)</h1>
+		<div class="container">
+			<div>
+				<h3>
+					<!--CHANGE THE EQUATIONS-->
+					F = k|q<sub>1</sub>q<sub>2</sub>| / r<sup>2</sup> <br>
+					E = F<sub>E</sub>/q<sub>1</sub>
+				</h3>
+			</div>
+			<div>
+				<h3>
+					F = electrostatic force <br>
+					q<sub>1</sub> = magnitudes of charges1 <br>
+					q<sub>2</sub> = magnitudes of charges2 <br>
+					r = distance between two charged objects <br>
+					E = electric field <br>
+					F<sub>E</sub> = electric field force <br>
+				</h3>
+				<p>Note: k refers to Coulomb's constant which is approx. 9 x 10<sup>9</sup> N·m<sup>2</sup>/C<sup>2</sup>. </p>
+			</div>
+
+			<div>
+				<!--GET INPUT FROM USER-->
+				<h3>
+					<!--CHANGE FORM NAME-->
+					<form id="charge">
+						<!--CHANGE FORMULA-->
+						<input type="number" step="any" id="force" name="force" placeholder="N"> <br>
+						<input type="number" step="any" id="q1" name="q1" placeholder="C"> <br>
+						<input type="number" step="any" id="q2" name="q2" placeholder="C"> <br>
+						<input type="number" step="any" id="r" name="r" placeholder="m"> <br>
+						<input type="number" step="any" id="elec" name="elec" placeholder="N/C"> <br>
+						<input type="number" step="any" id="elecF" name="elecF" placeholder="N"> <br>
+						<button type="button" onclick="chargeSolver()">Solve</button>
+					</form>
+
+					<script>
+						//function to round a value to four decimal numbers
+						function roundTo4Deci(number) {
+							return Number.prototype.toFixed.call(number, 4);
+						}
+
+						function chargeSolver() {
+							//get values from the form
+							var form = document.getElementById("charge");
+
+							//get value from document
+							var F = parseFloat(form.elements["force"].value);
+							var q1 = parseFloat(form.elements["q1"].value);
+							var q2 = parseFloat(form.elements["q2"].value);
+							var r = parseFloat(form.elements["r"].value);
+							var E = parseFloat(form.elements["elec"].value);
+							var FE = parseFloat(form.elements["elecF"].value);
+
+							//calculate and return value
+							var k = 9E9;
+							var force = (k * q1 * q2) / Math.pow(r, 2);
+							form.elements["force"].value = force.toExponential();
+							var elec = FE / q1;
+							form.elements["elec"].value =
+								elec.toExponential();
+						}
+					</script>
+				</h3>
+
+			</div>
+		</div>
+		<!--CHANGE THE TOPIC-->
+		<!--SECOND TOPIC-->
+		<h1>Magnetism</h1>
+		<div class="container">
+			<div>
+				<h3>
+					<!--CHANGE THE EQUATIONS-->
+					F = qvB sin&theta; <br>
+					F = ILB sin&theta; <br>
+					&tau; = NIAB sin&theta;
+				</h3>
+			</div>
+			<div>
+				<h3>
+					F = magnetic force <br>
+					q = charge <br>
+					v = velocity <br>
+					B = magnetic field <br>
+					&theta; = angle between v and B <br>
+				</h3>
+			</div>
+
+			<div>
+				<!--GET INPUT FROM USER-->
+				<h3>
+					<!--CHANGE FORM NAME-->
+					<form id="magnetism">
+						<!--CHANGE FORMULA-->
+						<input type="number" step="any" id="force" name="force" placeholder="N"> <br>
+						<input type="number" step="any" id="charge" name="charge" placeholder="C"> <br>
+						<input type="number" step="any" id="velocity" name="velocity" placeholder="m/s"> <br>
+						<input type="number" step="any" id="field" name="field" placeholder="T"> <br>
+						<input type="number" step="any" id="theta" name="theta" placeholder="rad"> <br>
+						<button type="button" onclick="columbSolver()">Solve</button>
+					</form>
+
+					<script>
+						//function to round a value to four decimal numbers
+						function roundTo4Deci(number) {
+							return Number.prototype.toFixed.call(number, 4);
+						}
+
+						function columbSolver() {
+							//get values from the form
+							var form = document.getElementById("magnetism");
+
+							//get value from document
+							var F = parseFloat(form.elements["force"].value);
+							var q = parseFloat(form.elements["charge"].value);
+							var v = parseFloat(form.elements["velocity"].value);
+							var B = parseFloat(form.elements["field"].value);
+							var theta = parseFloat(form.elements["theta"].value);
+
+							//calculate and return value
+							var force = q*v*B*Math.sin(theta);
+							form.elements["force"].value = force.toExponential();
+						}
+					</script>
+				</h3>
+
+			</div>
+		</div>
+		<p>More equations to be coming soon!</p>
+	</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+
+		<style>
+			.container {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-gap: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--CHANGE THE TOPIC-->
+		<h1>Uniform Circular Motion And Gravitation</h1>
+		<div class="container">
+			<div>
+				<h3>
+					<!--CHANGE THE EQUATIONS-->
+					a<sub>c</sub> = v<sup>2</sup>/r <br>
+					F<sub>c</sub> = ma<sub>c</sub> <br>
+				</h3>
+			</div>
+			<div>
+				<h3>
+					v = tangential velocity <br>
+					r = radius of circular path<br>
+					F<sub>c</sub> = centripetal force <br>
+					m = mass <br>
+					a<sub>c</sub> = centripetal acceleration <br>
+				</h3>
+			</div>
+
+			<div>
+				<!--GET INPUT FROM USER-->
+				<h3>
+					<!--CHANGE FORM NAME-->
+					<form id="circularGravi">
+						<!--CHANGE FORMULA-->
+						<input type="number" step="any" id="tanvelocity" name="tanvelocity" placeholder="m/s"> <br>
+						<input type="number" step="any" id="circularradius" name="circularradius" placeholder="m"> <br>
+						<input type="number" step="any" id="centriforce" name="centriforce" placeholder="N"> <br>
+						<input type="number" step="any" id="mass" name="mass" placeholder="kg"> <br>
+						<input type="number" step="any" id="centriacc" name="centriacc" placeholder="m/s^2"> <br>
+
+						<button type="button" onclick="circularGraviSolver()">Solve</button>
+					</form>
+
+					<script>
+						//function to round a value to four decimal numbers
+						function roundTo4Deci(number) {
+							return Number.prototype.toFixed.call(number, 4);
+						}
+
+						function circularGraviSolver() {
+							//get values from the form
+							var form = document.getElementById("circularGravi");
+
+							//get value from document
+							var v = parseFloat(form.elements["tanvelocity"].value);
+							var r = parseFloat(form.elements["circularradius"].value);
+							var F = parseFloat(form.elements["centriforce"].value);
+							var m = parseFloat(form.elements["mass"].value);
+							var a = parseFloat(form.elements["centriacc"].value);
+
+							//calculate and return value
+							form.elements["centriacc"].value = roundTo4Deci(Math.pow(v, 2) / r);
+							form.elements["centriforce"].value = roundTo4Deci(m * a);
+						}
+					</script>
+				</h3>
+
+			</div>
+		</div>
+		<!--SECOND CONTAINER-->
+		<div class="container">
+			<div>
+				<h3>
+					<!--CHANGE THE EQUATIONS-->
+					F = GmM/r<sup>2</sup> <br>
+					T<sup>2</sup> = 4&#960;<sup>2</sup>r<sup>3</sup>/GM
+				</h3>
+			</div>
+			<div>
+				<h3>
+					<!--CHANGE THE VARIABLE REFERENCES-->
+					F = gravitational force <br>
+					M = mass1 <br>
+					m = mass2 <br>
+					r = radius of orbit <br>
+					T = period of orbit <br>
+
+				</h3>
+				<p>Note: G refers to gravitational constant; that is approx. 6.6743E x 10<sup>-11</sup>m<sup>3</sup> kg<sup>-1</sup> s<sup>-2</sup>. <br>
+					M<sub>E</sub> refers to mass of the Earth that is approx. 5.9722 × 10<sup>24</sup>kg.</p>
+			</div>
+
+			<div>
+				<!--GET INPUT FROM USER-->
+				<h3>
+					<!--CHANGE FORM NAME-->
+					<form id="circularGravi2">
+						<!--CHANGE FORMULA-->
+						<input type="number" step="any" id="graviforce" name="graviforce" placeholder="N"> <br>
+						<input type="number" step="any" id="mass1" name="mass1" placeholder="kg"> <br>
+						<input type="number" step="any" id="mass2" name="mass2" placeholder="kg"> <br>
+						<input type="number" step="any" id="radius" name="radius" placeholder="m"> <br>
+						<input type="number" step="any" id="periodorbit" name="periodorbit" placeholder="s"> <br>
+
+						<button type="button" onclick="circularGraviSolver2()">Solve</button>
+					</form>
+
+					<script>
+						function roundTo4Deci(number) {
+							return Number.prototype.toFixed.call(number, 4);
+						}
+						function calcForce(M, m, r) {
+							var G = 6.6743e-11;
+							var answer = (G*M*m)/Math.pow(r, 2);
+							return answer;
+						}
+						function calcPeriod(M, r) {
+							var G = 6.6743e-11;
+							var answer = (4*Math.pow(Math.PI, 2)*Math.pow(r, 3))/(G*M);
+							return answer;
+						}
+						function circularGraviSolver2() {
+							//get values from the form
+							var form = document.getElementById("circularGravi2");
+
+							//get value from document
+							var F = parseFloat(form.elements["graviforce"].value);
+							var M = parseFloat(form.elements["mass1"].value);
+							var m = parseFloat(form.elements["mass2"].value);
+							var r = parseFloat(form.elements["radius"].value);
+							var T = parseFloat(form.elements["periodorbit"].value);
+
+							//calculate and return value
+							var force = calcForce(M, m, r).toExponential();
+							form.elements["graviforce"].value = force;
+							var period = calcPeriod(M, r).toExponential();
+							form.elements["periodorbit"].value = period;
+						}
+					</script>
+				</h3>
+
+			</div>
+
+		</div>
+		<!--END OF KE MOTION EQ-->
+	</body>
+
+</html>

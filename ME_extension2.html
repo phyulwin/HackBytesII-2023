@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<style>
+			.container {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-gap: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>Forces and Newton's Laws of Motion</h1>
+		<div class="container">
+			<div>
+				<h3>
+					F = ma<br>W=mg
+				</h3>
+			</div>
+			<div>
+				<h3>
+					F = net force <br>
+					m = mass <br>
+					a = acceleration <br>
+					W = weight <br>
+					g = gravitational acceleration <br>
+					<p>Note: g is approximately 9.81 m/s^2 on Earth.</p>
+				</h3>
+			</div>
+			<div>
+				<h3>
+					<form id="dynamicForces">
+						<input type="number" step="any" id="force" name="force" placeholder="N"> <br>
+						<input type="number" step="any" id="mass" name="mass" placeholder="kg"> <br>
+						<input type="number" step="any" id="acceleration" name="acceleration" placeholder="m/s^2"> <br>
+						<input type="number" step="any" id="weight" name="weight" placeholder="N"> <br>
+						<input type="number" step="any" id="graviAcceleration" name="graviAcceleration" placeholder="m/s^2"> <br>
+
+						<button type="button" onclick="calcDynamicsForce()">Solve</button>
+					</form>
+					<script>
+						function roundTo4Deci(number) {
+							return Number.prototype.toFixed.call(number, 4);
+						}
+
+						function calcDynamicsForce() {
+							//get values from the form
+							var form = document.getElementById("dynamicForces");
+
+							var F = parseFloat(form.elements["force"].value);
+							var m = parseFloat(form.elements["mass"].value);
+							var a = parseFloat(form.elements["acceleration"].value);
+							var W = parseFloat(form.elements["weight"].value);
+							var g = parseFloat(form.elements["graviAcceleration"].value);
+
+							//calculate and return the answer to html page
+							form.elements["force"].value = roundTo4Deci(m*a);
+							form.elements["weight"].value = roundTo4Deci(m*g);
+						}
+					</script>
+				</h3>
+			</div>
+		</div>
+	</body>
+
+</html>
