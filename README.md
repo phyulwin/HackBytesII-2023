@@ -20,9 +20,9 @@ Upcoming features will include displaying and calculating the values of variable
 
 Project Gallery
 ==================
-[](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/Screenshot%20(1065).png)
-[](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/Screenshot%20(1066).png)
-[](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/Screenshot%20(1067).png)
-[](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/Screenshot%20(1068).png)
-[](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/Screenshot%20(1069).png)
-[](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/website%20mobile%20view.png)
+![](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/Screenshot%20(1065).png)
+![](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/Screenshot%20(1066).png)
+![](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/Screenshot%20(1067).png)
+![](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/Screenshot%20(1068).png)
+![](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/Screenshot%20(1069).png)
+![](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/website%20mobile%20view.png)
