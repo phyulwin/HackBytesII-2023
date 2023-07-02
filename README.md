@@ -17,3 +17,12 @@ During the development stages, I gained valuable knowledge in JavaScript syntax 
 
 ## What's next for Physics Equation Blackboard &#x1F30E;&#x1F52C;
 Upcoming features will include displaying and calculating the values of variables with different units, such as the Metric system, along with unit conversions for SI units. Additionally, the website will include equations from subjects that are currently not covered, such as thermodynamics, fluid statics, fluid dynamics, and more.
+
+Project Gallery
+==================
+[](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/Screenshot%20(1065).png)
+[](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/Screenshot%20(1066).png)
+[](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/Screenshot%20(1067).png)
+[](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/Screenshot%20(1068).png)
+[](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/Screenshot%20(1069).png)
+[](https://github.com/phyulwin/HackBytesII-2023/blob/main/Assets/website%20mobile%20view.png)
